@@ -1,14 +1,14 @@
-{% comment %} datos aportador {% endcomment %}
-{% comment %} mis aportes historicos {% endcomment %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Aportadores</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="Assets/styles.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.0.8/css/dataTables.dataTables.css" />
+    <link rel="stylesheet" href="Assets/aportadores.css">
 </head>
 <style>
     body {
@@ -27,14 +27,252 @@
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav">
             <a class="nav-link active" href="home.html">Home<span class="sr-only">(current)</span></a>
-            <a class="nav-link " href="aportadores.html">Aporte</a>
-            <a class="nav-link " href="mandatos.html">Mandatos</a>
-            <a class="nav-link " href="ingresos.html">Ingresos</a>
-            <a class="nav-link " href="residentes.html">Residentes</a>
-            <a class="nav-link " href="administrador.html">Administrador</a>
+            <a class="nav-link " href="aportadores.html">Aportadores</a>
+            <a class="nav-link disabled" href="residentes.html">Residentes</a>
+            <a class="nav-link disabled" href="administrador.html">Administrador</a>
           </div>
         </div>
       </nav>
+
+
+      <div class="container my-5 ">
+        <div class="row">
+          <div class="col-lg-12 mt-2">
+            <h1>Registro de Mandato de Aporte</h2>
+              <form action="/procesar_registro_aportador" method="POST" class="glass">
+                  <label for="nombre">Nombre:</label>
+                  <input type="text" autocomplete="off"  id="nombre" name="nombre" required>
+          
+                  <label for="rut">RUT:</label>
+                  <input type="text" autocomplete="off"  id="rut" name="rut" required>
+          
+                  <label for="correo">Correo electrónico:</label>
+                  <input type="email" autocomplete="off"  id="correo" name="correo" required>
+          
+                  <label for="telefono">Teléfono:</label>
+                  <input type="text" autocomplete="off"  id="telefono" name="telefono" required>
+          
+                  <label for="monto">Monto a aportar mensualmente:</label>
+                  <input type="number" autocomplete="off"  id="monto" name="monto" required>
+          
+                  <label for="tarjeta">Número de tarjeta de la empresa del retail:</label>
+                  <input type="text" autocomplete="off"  id="tarjeta" name="tarjeta" required>
+          
+                  <label for="inicio_aporte">Fecha de inicio del aporte:</label>
+                  <input type="date" autocomplete="off"  id="inicio_aporte" name="inicio_aporte" required>
+          
+                  <input type="submit" autocomplete="off" onclick="alertaRegistrarAportador()"  value="Registrar Aportador">
+              </form>
+          </div>
+        </div>
+      </div>
+      
+        <div class="container glass mt-5">
+          <div class="row">
+            <div class="col-lg-12">
+              <h1>Consultas de Mandato de Aporte</h1>
+              <div class="input-group">
+                  <label for="mandato-id">Mandato ID:</label>
+                  <input type="text" autocomplete="off"  id="mandato-id"  >
+              </div>
+              <div class="input-group">
+                  <label for="nombre">Nombre:</label>
+                  <input type="text" autocomplete="off"  id="nombre" >
+              </div>
+              <div class="input-group">
+                  <label for="monto">Monto:</label>
+                  <input type="text" autocomplete="off"  id="monto" >
+              </div>
+              <div class="input-group">
+                  <label for="tarjeta-retail">Nº Tarjeta Retail:</label>
+                  <input type="text" autocomplete="off"  id="tarjeta-retail" >
+              </div>
+              <div class="input-group">
+                  <label for="fecha-inicio">Fecha de Inicio:</label>
+                  <input type="date" autocomplete="off"  id="fecha-inicio" >
+              </div>
+              <div class="buttons">
+                  <button onclick="alertaModificacion()">Modificar</button>
+                  <button onclick="alertaEliminar()">Eliminar</button>
+                  <button><a href="/Home.html"></a>Volver</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      
+        <div class="container">
+          <div class="row my-3">
+            <div class="col lg-6" style="center">
+              <section>
+                <div class="card glass">
+                  <div class="card-body">
+                    <h2>Añadir nuevo aporte</h2>
+                    <h3>En caso de querer hacer un aporte unitario</h3>
+                    <button class="btn" type="submit" style="center" onclick="asignarAporte()">Nuevo Aporte</button>
+                  </div>
+                </div>
+                <script>
+                  function asignarAporte() {
+                    Swal.fire({
+                      title: 'Asignar Aportes',
+                      html: `
+              <input id="Nombre" class="swal2-input" placeholder="Nombre">
+              <input id="Monto" class="swal2-input" placeholder="Monto">
+              <input id="TarjetaRetail" class="swal2-input" placeholder="N° Tarjeta Retail">
+              <input id="Fecha" type="date" class="swal2-input" placeholder="Fecha de comienzo">
+            `,
+                      focusConfirm: false,
+                      preConfirm: () => {
+                        const Nombre = document.getElementById('Nombre').value;
+                        const Monto = document.getElementById('Monto').value;
+                        const TarjetaRetail = document.getElementById('TarjetaRetail').value;
+                        const Fecha = document.getElementById('Fecha').value;
+                        if (!Nombre || !Monto || !TarjetaRetail || !Fecha) {
+                          Swal.showValidationMessage('Por favor complete todos los campos');
+                        } else {
+                          return { Nombre, Monto, TarjetaRetail, Fecha };
+                        }
+                      }
+                    }).then((result) => {
+                      if (result.isConfirmed) {
+                        const { Nombre, Monto, TarjetaRetail, Fecha } = result.value;
+                        // Lógica para asignar recursos
+                        Swal.fire('Aporte Asignado', `A nombre de: ${Nombre}<br>Monto: ${Monto}<br>Tarjeta asignada: ${TarjetaRetail}<br>Fecha: ${Fecha}`, 'success');
+                      }
+                    });
+                  }
+                </script>
+              </section>
+            </div>
+          </div>
+        </div>
+      
+        <div class="container mb-5">
+          <div class="row">
+            <div class="col-lg-12 glass">
+              <br>
+              <h1><strong>Mis Aportes Históricos</strong></h1>
+              <table id="myTable" class="display" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>FECHA</th>
+                        <th>TIPO DE PAGO</th>
+                        <th>MONTO</th>
+                    </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>01/01/2023</td>
+                    <td>Transferencia</td>
+                    <td>$200,000</td>
+                </tr>
+                <tr>
+                    <td>15/01/2023</td>
+                    <td>Tarjeta de Crédito</td>
+                    <td>$150,000</td>
+                </tr>
+                <tr>
+                    <td>28/01/2023</td>
+                    <td>Efectivo</td>
+                    <td>$100,000</td>
+                </tr>
+                <tr>
+                    <td>10/02/2023</td>
+                    <td>Transferencia</td>
+                    <td>$250,000</td>
+                </tr>
+                <tr>
+                    <td>20/02/2023</td>
+                    <td>Tarjeta de Débito</td>
+                    <td>$50,000</td>
+                </tr>
+                <tr>
+                    <td>05/03/2023</td>
+                    <td>Transferencia</td>
+                    <td>$300,000</td>
+                </tr>
+                <tr>
+                    <td>18/03/2023</td>
+                    <td>Tarjeta de Crédito</td>
+                    <td>$120,000</td>
+                </tr>
+                <tr>
+                    <td>25/03/2023</td>
+                    <td>Efectivo</td>
+                    <td>$90,000</td>
+                </tr>
+                <tr>
+                    <td>01/04/2023</td>
+                    <td>Transferencia</td>
+                    <td>$400,000</td>
+                </tr>
+                <tr>
+                    <td>12/04/2023</td>
+                    <td>Tarjeta de Débito</td>
+                    <td>$80,000</td>
+                </tr>
+                <tr>
+                    <td>23/04/2023</td>
+                    <td>Transferencia</td>
+                    <td>$350,000</td>
+                </tr>
+                <tr>
+                    <td>05/05/2023</td>
+                    <td>Tarjeta de Crédito</td>
+                    <td>$220,000</td>
+                </tr>
+                <tr>
+                    <td>18/05/2023</td>
+                    <td>Efectivo</td>
+                    <td>$70,000</td>
+                </tr>
+                <tr>
+                    <td>29/05/2023</td>
+                    <td>Transferencia</td>
+                    <td>$180,000</td>
+                </tr>
+                <tr>
+                    <td>11/06/2023</td>
+                    <td>Tarjeta de Débito</td>
+                    <td>$130,000</td>
+                </tr>
+                <tr>
+                    <td>24/06/2023</td>
+                    <td>Transferencia</td>
+                    <td>$170,000</td>
+                </tr>
+                <tr>
+                    <td>06/07/2023</td>
+                    <td>Tarjeta de Crédito</td>
+                    <td>$260,000</td>
+                </tr>
+                <tr>
+                    <td>19/07/2023</td>
+                    <td>Efectivo</td>
+                    <td>$110,000</td>
+                </tr>
+                <tr>
+                    <td>30/07/2023</td>
+                    <td>Transferencia</td>
+                    <td>$90,000</td>
+                </tr>
+                <tr>
+                    <td>15/08/2023</td>
+                    <td>Tarjeta de Débito</td>
+                    <td>$140,000</td>
+                </tr>
+           
+                </tbody>
+                
+            </table>
+            </div>
+          </div>
+        </div>
+        
+      
+      
+      
+      
 
 
 
@@ -42,6 +280,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.datatables.net/2.0.8/js/dataTables.js"></script>
 </body>
 
 <script>
@@ -50,5 +289,84 @@
         AOS.init();
         console.log('AOS se ha iniciado');
     });
+
+
+
+    function alertaModificacion(){
+      Swal.fire({
+          title: "Estas seguro de realizar la Modificación de estos datos?",
+          showDenyButton: true,
+          showCancelButton: true,
+          confirmButtonText: "Si, Modificar",
+          denyButtonText: `No Cancelar`
+        }).then((result) => {
+          /* Read more about isConfirmed, isDenied below */
+          if (result.isConfirmed) {
+            Swal.fire("Modificado Correctamente!", "", "success");
+          } else if (result.isDenied) {
+            Swal.fire("No se Modificó la información", "", "info");
+          }
+        });
+      }
+
+      function alertaEliminar(){
+        Swal.fire({
+            title: "Estas seguro de realizar Eliminar el mandato de aporte?",
+            showDenyButton: true,
+            showCancelButton: true,
+            confirmButtonText: "Si, Eliminar",
+            denyButtonText: `No Cancelar`
+          }).then((result) => {
+            /* Read more about isConfirmed, isDenied below */
+            if (result.isConfirmed) {
+              Swal.fire("Eliminado Correctamente!", "", "success");
+            } else if (result.isDenied) {
+              Swal.fire("No se Eliminó el mandato", "", "info");
+            }
+          });
+        }
+
+        function alertaNuevoMandato(){
+          Swal.fire({
+              title: "Estas seguro de crear un nuevo mandato de aporte?",
+              showDenyButton: true,
+              showCancelButton: true,
+              confirmButtonText: "Si, crealo",
+              denyButtonText: `No Cancelar`
+            }).then((result) => {
+              /* Read more about isConfirmed, isDenied below */
+              if (result.isConfirmed) {
+                Swal.fire("Creado Correctamente!", "", "success");
+              } else if (result.isDenied) {
+                Swal.fire("No se Creo el mandato", "", "info");
+              }
+            });
+          }
+        
+          function alertaRegistrarAportador(){
+            Swal.fire({
+                title: "Estas seguro de ingresar un nuevo aportador?",
+                showDenyButton: true,
+                showCancelButton: true,
+                confirmButtonText: "Si, Agregalo",
+                denyButtonText: `No Cancelar`
+              }).then((result) => {
+                /* Read more about isConfirmed, isDenied below */
+                if (result.isConfirmed) {
+                  Swal.fire("Agregado Correctamente!", "", "success");
+                } else if (result.isDenied) {
+                  Swal.fire("No se Agregó el nuevo Aportador", "", "info");
+                }
+              });
+            }
+
+            $(document).ready( function () {
+              $('#myTable').DataTable();
+          } );
+
+
+
+
+</script>
 
 </html>

@@ -6,7 +6,8 @@
     <title>Document</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="Assets/styles.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.0.8/css/dataTables.dataTables.css" />
+    <link rel="stylesheet" href="Assets/administrador.css">
 </head>
 <style>
     body {
@@ -25,14 +26,613 @@
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav">
             <a class="nav-link active" href="home.html">Home<span class="sr-only">(current)</span></a>
-            <a class="nav-link " href="aportadores.html">Aporte</a>
-            <a class="nav-link " href="mandatos.html">Mandatos</a>
-            <a class="nav-link " href="ingresos.html">Ingresos</a>
+            <a class="nav-link " href="aportadores.html">Aportadores</a>
             <a class="nav-link " href="residentes.html">Residentes</a>
             <a class="nav-link " href="administrador.html">Administrador</a>
           </div>
         </div>
       </nav>
+
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 my-3">
+            <h1>GESTIÓN DE INFORMACIÓN ADMINISTRATIVA</h1>
+            <hr>
+            <h2>Sección: Aportadores</h2>
+          </div>
+        </div>
+      </div>
+      <div class="container mt-5">
+        <div class="row">
+          <div class="col-lg-6 glass">
+            <button id="toggleTable" class="btn">Ver histórico mandatos</button>
+            <table id="mytable1" class="hidden-display my-3" style="width:100%">
+              <thead>
+                <tr>
+                    <th>ID Aporte</th>
+                    <th>Nombre</th>
+                    <th>Fecha de Pago</th>
+                    <th>Tipo de Pago</th>
+                    <th>Monto</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Carlos Pérez</td>
+                    <td>01/01/2023</td>
+                    <td>Transferencia</td>
+                    <td>$200,000</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>María González</td>
+                    <td>15/01/2023</td>
+                    <td>Tarjeta de Crédito</td>
+                    <td>$150,000</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Juan Rodríguez</td>
+                    <td>28/01/2023</td>
+                    <td>Efectivo</td>
+                    <td>$100,000</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Ana López</td>
+                    <td>10/02/2023</td>
+                    <td>Transferencia</td>
+                    <td>$250,000</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>Pedro Martínez</td>
+                    <td>20/02/2023</td>
+                    <td>Tarjeta de Débito</td>
+                    <td>$50,000</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>Laura Fernández</td>
+                    <td>05/03/2023</td>
+                    <td>Transferencia</td>
+                    <td>$300,000</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>Felipe Castro</td>
+                    <td>18/03/2023</td>
+                    <td>Tarjeta de Crédito</td>
+                    <td>$120,000</td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>Gabriela Silva</td>
+                    <td>25/03/2023</td>
+                    <td>Efectivo</td>
+                    <td>$90,000</td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td>Ricardo Torres</td>
+                    <td>01/04/2023</td>
+                    <td>Transferencia</td>
+                    <td>$400,000</td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td>Verónica Morales</td>
+                    <td>12/04/2023</td>
+                    <td>Tarjeta de Débito</td>
+                    <td>$80,000</td>
+                </tr>
+                <tr>
+                    <td>11</td>
+                    <td>Sergio Ríos</td>
+                    <td>23/04/2023</td>
+                    <td>Transferencia</td>
+                    <td>$350,000</td>
+                </tr>
+                <tr>
+                    <td>12</td>
+                    <td>Isabel Herrera</td>
+                    <td>05/05/2023</td>
+                    <td>Tarjeta de Crédito</td>
+                    <td>$220,000</td>
+                </tr>
+                <tr>
+                    <td>13</td>
+                    <td>Manuel Ruiz</td>
+                    <td>18/05/2023</td>
+                    <td>Efectivo</td>
+                    <td>$70,000</td>
+                </tr>
+                <tr>
+                    <td>14</td>
+                    <td>Carmen Díaz</td>
+                    <td>29/05/2023</td>
+                    <td>Transferencia</td>
+                    <td>$180,000</td>
+                </tr>
+                <tr>
+                    <td>15</td>
+                    <td>Antonio Paredes</td>
+                    <td>11/06/2023</td>
+                    <td>Tarjeta de Débito</td>
+                    <td>$130,000</td>
+                </tr>
+                <tr>
+                    <td>16</td>
+                    <td>Patricia Soto</td>
+                    <td>24/06/2023</td>
+                    <td>Transferencia</td>
+                    <td>$170,000</td>
+                </tr>
+                <tr>
+                    <td>17</td>
+                    <td>Oscar Venegas</td>
+                    <td>06/07/2023</td>
+                    <td>Tarjeta de Crédito</td>
+                    <td>$260,000</td>
+                </tr>
+                <tr>
+                    <td>18</td>
+                    <td>Mónica Guzmán</td>
+                    <td>19/07/2023</td>
+                    <td>Efectivo</td>
+                    <td>$110,000</td>
+                </tr>
+                <tr>
+                    <td>19</td>
+                    <td>Andrés Sepúlveda</td>
+                    <td>30/07/2023</td>
+                    <td>Transferencia</td>
+                    <td>$90,000</td>
+                </tr>
+                <tr>
+                    <td>20</td>
+                    <td>Carolina Fuentes</td>
+                    <td>15/08/2023</td>
+                    <td>Tarjeta de Débito</td>
+                    <td>$140,000</td>
+                </tr>
+                <tr>
+                    <td>21</td>
+                    <td>Daniela Peña</td>
+                    <td>28/08/2023</td>
+                    <td>Transferencia</td>
+                    <td>$300,000</td>
+                </tr>
+                <tr>
+                    <td>22</td>
+                    <td>Jorge Herrera</td>
+                    <td>11/09/2023</td>
+                    <td>Tarjeta de Crédito</td>
+                    <td>$250,000</td>
+                </tr>
+                <tr>
+                    <td>23</td>
+                    <td>Sofía Muñoz</td>
+                    <td>24/09/2023</td>
+                    <td>Efectivo</td>
+                    <td>$200,000</td>
+                </tr>
+                <tr>
+                    <td>24</td>
+                    <td>Roberto Aguilar</td>
+                    <td>07/10/2023</td>
+                    <td>Transferencia</td>
+                    <td>$220,000</td>
+                </tr>
+                <tr>
+                    <td>25</td>
+                    <td>Valeria Rojas</td>
+                    <td>20/10/2023</td>
+                    <td>Tarjeta de Débito</td>
+                    <td>$190,000</td>
+                </tr>
+                <tr>
+                    <td>26</td>
+                    <td>Francisco Jiménez</td>
+                    <td>02/11/2023</td>
+                    <td>Transferencia</td>
+                    <td>$140,000</td>
+                </tr>
+                <tr>
+                    <td>27</td>
+                    <td>Raquel Castillo</td>
+                    <td>15/11/2023</td>
+                    <td>Tarjeta de Crédito</td>
+                    <td>$160,000</td>
+                </tr>
+                <tr>
+                    <td>28</td>
+                    <td>Leonardo Peña</td>
+                    <td>28/11/2023</td>
+                    <td>Efectivo</td>
+                    <td>$130,000</td>
+                </tr>
+                <tr>
+                    <td>29</td>
+                    <td>Elena Bravo</td>
+                    <td>10/12/2023</td>
+                    <td>Transferencia</td>
+                    <td>$110,000</td>
+                </tr>
+                <tr>
+                    <td>30</td>
+                    <td>Héctor Ortiz</td>
+                    <td>23/12/2023</td>
+                    <td>Tarjeta de Débito</td>
+                    <td>$90,000</td>
+                  </tr>
+              </tbody>  
+              <tfoot>
+                <tr>
+                    <th colspan="4" style="text-align:right">TOTAL APORTE: $23,500,450</th>
+                    <th></th>
+                </tr>
+            </tfoot> 
+            </table>
+          </div>
+          
+          <div class="col-lg-6 glass">
+            <button id="toggleTable2" class="btn">Ver Aportadores Registrados</button>
+            <table id="mytable2" class="hidden-display2 my-3" style="width:100%">
+              <thead>
+                <tr>
+                    <th>ID Aporte</th>
+                    <th>Nombre</th>
+                    <th>Fecha registro</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Carlos Pérez</td>
+                    <td>01/01/2023</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>María González</td>
+                    <td>15/01/2023</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Juan Rodríguez</td>
+                    <td>28/01/2023</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Ana López</td>
+                    <td>10/02/2023</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>Pedro Martínez</td>
+                    <td>20/02/2023</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>Laura Fernández</td>
+                    <td>05/03/2023</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>Felipe Castro</td>
+                    <td>18/03/2023</td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>Gabriela Silva</td>
+                    <td>25/03/2023</td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td>Ricardo Torres</td>
+                    <td>01/04/2023</td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td>Verónica Morales</td>
+                    <td>12/04/2023</td>
+                </tr>
+                <tr>
+                    <td>11</td>
+                    <td>Sergio Ríos</td>
+                    <td>23/04/2023</td>
+                </tr>
+              </tbody>
+              </table>
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <h2>Sección: Control de Insumos</h2>
+            <hr>
+          </div>
+          <div class="container">
+            <div class="row my-3">
+              <div class="col lg-6" style="center">
+                <section>
+                  <div class="card glass">
+                    <div class="card-body">
+                      <h2>REGISTRO DE COMPRAS</h2>
+                      <button class="btn" type="submit" style="center" onclick="compra()">Nueva Solicitud</button>
+                    </div>
+                  </div>
+                  <script>
+                    function compra() {
+                      Swal.fire({
+                        title: 'Solicitud de compra',
+                        html: `
+                <input id="Nombre" class="swal2-input" placeholder="Nombre insumo">
+                <input id="Cantidad" class="swal2-input" placeholder="Cantidad">
+                <input id="Fecha" type="date" class="swal2-input" placeholder="Fecha de Compra">
+              `,
+                        focusConfirm: false,
+                        preConfirm: () => {
+                          const Nombre = document.getElementById('Nombre').value;
+                          const Cantidad = document.getElementById('Cantidad').value;
+                          const Fecha = document.getElementById('Fecha').value;
+                          if (!Nombre || !Monto || !TarjetaRetail || !Fecha) {
+                            Swal.showValidationMessage('Por favor complete todos los campos');
+                          } else {
+                            return { Nombre, Cantidad, Fecha };
+                          }
+                        }
+                      }).then((result) => {
+                        if (result.isConfirmed) {
+                          const { Nombre, Cantidad, Fecha } = result.value;
+                          // Lógica para asignar recursos
+                          Swal.fire('Solicitud de compra', `Nombre de Insumo : ${Nombre}<br>Cantidad: ${Cantidad}<br>Fecha de solicitud: ${Fecha}`, 'success');
+                        }
+                      });
+                    }
+                  </script>
+                </section>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12 glass my-4">
+              <h2>INVENTARIO DIARIO</h2>
+              <button id="toggleTable3" class="btn">Inventario de Insumos</button>
+              <table id="mytable3" class="hidden-display3 my-3" style="width:100%">
+                  <thead>
+                    <tr>
+                        <th>ID INSUMO</th>
+                        <th>NOMBRE</th>
+                        <th>CAJA</th>
+                        <th>UNIDAD</th>
+                        <th>FECHA ULTIMA COMPRA</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Guantes de Látex</td>
+                        <td>50</td>
+                        <td>500</td>
+                        <td>12/07/2024</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Mascarillas</td>
+                        <td>30</td>
+                        <td>30</td>
+                        <td>12/07/2024</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Alcohol Gel</td>
+                        <td>20</td>
+                        <td>20</td>
+                        <td>12/07/2024</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Jeringas</td>
+                        <td>100</td>
+                        <td>1000</td>
+                        <td>12/07/2024</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>Gasas</td>
+                        <td>25</td>
+                        <td>2500</td>
+                        <td>12/07/2024</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>Antiséptico</td>
+                        <td>15</td>
+                        <td>1500</td>
+                        <td>12/07/2024</td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td>Bisturí</td>
+                        <td>10</td>
+                        <td>100</td>
+                        <td>12/07/2024</td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td>Sueros</td>
+                        <td>40</td>
+                        <td>4000</td>
+                        <td>12/07/2024</td>
+                    </tr>
+                    <tr>
+                        <td>9</td>
+                        <td>Curitas</td>
+                        <td>35</td>
+                        <td>3500</td>
+                        <td>12/07/2024</td>
+                    </tr>
+                    <tr>
+                        <td>10</td>
+                        <td>Cubrebocas</td>
+                        <td>50</td>
+                        <td>180</td>
+                        <td>12/07/2024</td>
+                    </tr>
+                    <tr>
+                        <td>11</td>
+                        <td>Agujas</td>
+                        <td>45</td>
+                        <td>4500</td>
+                        <td>12/07/2024</td>
+                    </tr>
+                    <tr>
+                        <td>12</td>
+                        <td>Esparadrapo</td>
+                        <td>60</td>
+                        <td>6000</td>
+                        <td>12/07/2024</td>
+                    </tr>
+                    <tr>
+                        <td>13</td>
+                        <td>Algodón</td>
+                        <td>70</td>
+                        <td>400</td>
+                        <td>12/07/2024</td>
+                    </tr>
+                    <tr>
+                        <td>14</td>
+                        <td>Vendas</td>
+                        <td>55</td>
+                        <td>5500</td>
+                        <td>12/07/2024</td>
+                    </tr>
+                    <tr>
+                        <td>15</td>
+                        <td>Sábanas</td>
+                        <td>10</td>
+                        <td>40</td>
+                        <td>12/07/2024</td>
+                    </tr>
+                    <tr>
+                        <td>16</td>
+                        <td>Desinfectante</td>
+                        <td>65</td>
+                        <td>13</td>
+                        <td>12/07/2024</td>
+                    </tr>
+                    <tr>
+                        <td>17</td>
+                        <td>Jabón Líquido</td>
+                        <td>30</td>
+                        <td>5</td>
+                        <td>12/07/2024</td>
+                    </tr>
+                    <tr>
+                        <td>18</td>
+                        <td>Termómetros</td>
+                        <td>4</td>
+                        <td>12</td>
+                        <td>12/07/2024</td>
+                    </tr>
+                    <tr>
+                        <td>19</td>
+                        <td>Cuchillas de Afeitar</td>
+                        <td>25</td>
+                        <td>250</td>
+                        <td>12/07/2024</td>
+                    </tr>
+                    <tr>
+                        <td>20</td>
+                        <td>Gelatina</td>
+                        <td>80</td>
+                        <td>20</td>
+                        <td>12/07/2024</td>
+                    </tr>
+                    <tr>
+                        <td>21</td>
+                        <td>Papel Higiénico</td>
+                        <td>90</td>
+                        <td>30</td>
+                        <td>12/07/2024</td>
+                    </tr>
+                    <tr>
+                        <td>22</td>
+                        <td>Detergente</td>
+                        <td>70</td>
+                        <td>10</td>
+                        <td>12/07/2024</td>
+                    </tr>
+                    <tr>
+                        <td>23</td>
+                        <td>Papelería</td>
+                        <td>50</td>
+                        <td>50</td>
+                        <td>12/07/2024</td>
+                    </tr>
+                    <tr>
+                        <td>24</td>
+                        <td>Jugo de Fruta</td>
+                        <td>50</td>
+                        <td>12</td>
+                        <td>12/07/2024</td>
+                    </tr>
+                    <tr>
+                        <td>25</td>
+                        <td>Café</td>
+                        <td>3</td>
+                        <td>4</td>
+                        <td>12/07/2024</td>
+                    </tr>
+                    <tr>
+                        <td>26</td>
+                        <td>Té</td>
+                        <td>50</td>
+                        <td>500</td>
+                        <td>12/07/2024</td>
+                    </tr>
+                    <tr>
+                        <td>27</td>
+                        <td>Pan</td>
+                        <td>3</td>
+                        <td>30</td>
+                        <td>12/07/2024</td>
+                    </tr>
+                    <tr>
+                        <td>28</td>
+                        <td>Yogurt</td>
+                        <td>30</td>
+                        <td>26</td>
+                        <td>12/07/2024</td>
+                    </tr>
+                    <tr>
+                        <td>29</td>
+                        <td>Frutas</td>
+                        <td>15</td>
+                        <td>45</td>
+                        <td>12/07/2024</td>
+                    </tr>
+                    <tr>
+                        <td>30</td>
+                        <td>Verduras</td>
+                        <td>14</td>
+                        <td>50</td>
+                        <td>12/07/2024</td>
+                    </tr>
+                </tbody>
+                  </table>
+            </div>
+          </div>
+        </div>
+
+
 
 
 
@@ -40,6 +640,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.datatables.net/2.0.8/js/dataTables.js"></script>
 </body>
 
 <script>
@@ -48,5 +649,41 @@
         AOS.init();
         console.log('AOS se ha iniciado');
     });
+
+
+  $(document).ready(function(){
+    $("#toggleTable").on("click", function(){
+        $(".hidden-display").toggle();
+        var btnText = $(this).text() == "Ver Más" ? "Ver Menos" : "Ver histórico mandatos";
+        $(this).text(btnText);
+    });
+});
+$(document).ready(function(){
+  $("#toggleTable2").on("click", function(){
+      $(".hidden-display2").toggle();
+      var btnText = $(this).text() == "Ver Más" ? "Ver Menos" : "Ver Aportadores";
+      $(this).text(btnText);
+  });
+});
+$(document).ready(function(){
+  $("#toggleTable3").on("click", function(){
+      $(".hidden-display3").toggle();
+      var btnText = $(this).text() == "Ver Más" ? "Ver Menos" : "Ver Inventario Diario";
+      $(this).text(btnText);
+  });
+});
+  </script>
+<script>
+  $(document).ready( function () {
+    $('#mytable1').DataTable();
+} );
+  $(document).ready( function () {
+    $('#mytable2').DataTable();
+} );
+  $(document).ready( function () {
+    $('#mytable3').DataTable();
+} );
+</script>
+  
 
 </html>

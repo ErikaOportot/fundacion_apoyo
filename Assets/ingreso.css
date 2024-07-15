@@ -1,8 +1,12 @@
 
-h1{
-    color:rgb(61, 10, 10)
+p{
+  color: white
+  
 }
 
+.navbar-nav{
+  font-size: 20px;
+}
 .glass{
    
     background: rgba(255, 255, 255, 0.15);
@@ -13,288 +17,107 @@ h1{
     border: 1px solid rgba(255, 255, 255, 0.3);
     
     }
-    
-    .container1 {
-      max-width: 500px;
-      max-height: 720px;
-      border-radius: 40px;
-      padding: 25px 35px;
-      margin: 0 auto;
+
+    .main {
+      position: relative;
       display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-    }
-    
-    .heading {
-      text-align: center;
-      font-weight: 900;
-      font-size: 30px;
-      color: rgb(4, 100, 23);
+      flex-direction: column;
+      background-color: #073e35;
+      max-height: 1000px;
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 7px 7px 10px 3px #24004628;
+      width: 100%;
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
     }
     
     .form {
-      margin-top: 0 auto;
-    }
-    
-    .form .input {
-      width: 100%;
-      background: white;
-      border: none;
-      padding: 15px 20px;
-      border-radius: 20px;
-      margin-top: 15px;
-      box-shadow: #cff0ff 0px 10px 10px -5px;
-      border-inline: 2px solid transparent;
-    }
-    
-    .form .input::-moz-placeholder {
-      color: rgb(170, 170, 170);
-    }
-    
-    .form .input::placeholder {
-      color: rgb(170, 170, 170);
-    }
-    
-    .form .input:focus {
-      outline: none;
-      border-inline: 2px solid #12B1D1;
-    }
-    
-    .form .forgot-password {
-      display: block;
-      margin-top: 10px;
-      margin-left: 10px;
-    }
-    
-    .form .forgot-password a {
-      font-size: 20px;
-      color: #044d24;
-      text-decoration: none;
-    }
-    
-    .form .login-button {
-      display: block;
-      width: 100%;
-      font-weight: bold;
-      background: linear-gradient(90deg, rgba(131,171,112,0.9192927170868347) 23%, rgba(4,77,36,0.7988445378151261) 64%);
-      color: white;
-      padding-block: 15px;
-      margin: 20px auto;
-      border-radius: 20px;
-      box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 20px 10px -15px;
-      border: none;
-      transition: all 0.2s ease-in-out;
-    }
-    
-    .form .login-button:hover {
-      transform: scale(1.03);
-      box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 23px 10px -20px;
-    }
-    
-    .form .login-button:active {
-      transform: scale(0.95);
-      box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 15px 10px -10px;
-    }
-    
-    .social-account-container {
-      margin-top: 25px;
-    }
-    
-    .social-account-container .title {
-      display: block;
-      text-align: center;
-      font-size: 10px;
-      color: rgb(170, 170, 170);
-    }
-    
-    .social-account-container .social-accounts {
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      margin-top: 5px;
-    }
-    
-    .social-account-container .social-accounts .social-button {
-      background: linear-gradient(45deg, rgb(0, 0, 0) 0%, rgb(112, 112, 112) 100%);
-      border: 5px solid white;
-      padding: 5px;
-      border-radius: 50%;
-      width: 40px;
-      aspect-ratio: 1;
-      display: grid;
-      place-content: center;
-      box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 12px 10px -8px;
-      transition: all 0.2s ease-in-out;
-    }
-    
-    .social-account-container .social-accounts .social-button .svg {
-      fill: white;
-      margin: auto;
-    }
-    
-    .social-account-container .social-accounts .social-button:hover {
-      transform: scale(1.2);
-    }
-    
-    .social-account-container .social-accounts .social-button:active {
-      transform: scale(0.9);
-    }
-    
-    .agreement {
-      display: block;
-      text-align: center;
-      margin-top: 15px;
-    }
-    
-    .agreement a {
-      text-decoration: none;
-      color: #044d24;
-      font-size: 30px;
-    }    
-    
-    .container2{
-      margin: 0 auto;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-  }
-
-
-  .form {
       display: flex;
       flex-direction: column;
-      gap: 10px;
-      max-width: 350px;
-      padding: 20px;
-      border-radius: 20px;
+      gap: 14px;
+      padding: 24px;
+    }
+    
+    /*checkbox to switch from sign up to login*/
+    #chk {
+      display: none;
+    }
+    
+    /*Login*/
+    .login {
       position: relative;
-
-    }
-    
-    .title {
-      font-size: 28px;
-      font-weight: 600;
-      letter-spacing: -1px;
-      position: relative;
-      display: flex;
-      align-items: center;
-      padding-left: 30px;
-      color: #044d24;
-    }
-    
-    .title::before {
-      width: 18px;
-      height: 18px;
-    }
-    
-    .title::after {
-      width: 18px;
-      height: 18px;
-      animation: pulse 1s linear infinite;
-    }
-    
-    .title::before,
-    .title::after {
-      position: absolute;
-      content: "";
-      height: 16px;
-      width: 16px;
-      border-radius: 50%;
-      left: 0px;
-      background-color: #044d24;
-    }
-    
-    .message, 
-    .signin {
-      font-size: 14.5px;
-      color:#044d24;
-    }
-    
-    .signin {
-      text-align: center;
-    }
-    
-    .signin a:hover {
-      text-decoration: underline rgb(2, 123, 22);
-    }
-    
-    .signin a {
-      color: #044d24;
-    }
-    
-    .flex {
-      display: flex;
       width: 100%;
-      gap: 6px;
+      height: 100%;
     }
     
-    .form label {
-      position: relative;
+    .login label {
+      margin: 25% 0 5%;
     }
     
-    .form label .input {
-      
-      color: #020000;
-      width: 100%;
-      padding: 20px 05px 05px 10px;
-      outline: 0;
-      border: 1px solid rgba(105, 105, 105, 0.397);
-      border-radius: 10px;
-    }
-    
-    .form label .input + span {
-      color: #044d24;
-      position: absolute;
-      left: 10px;
-      top: 0px;
-      font-size: 0.9em;
-      cursor: text;
-      transition: 0.3s ease;
-    }
-    
-    .form label .input:placeholder-shown + span {
-      top: 12.5px;
-      font-size: 0.9em;
-    }
-    
-    .form label .input:focus + span,
-    .form label .input:valid + span {
-      color: #044d24;
-      top: 0px;
-      font-size: 0.7em;
-      font-weight: 600;
+    label {
+      color: #fff;
+      font-size: 2rem;
+      justify-content: center;
+      display: flex;
+      font-weight: bold;
+      cursor: pointer;
+      transition: .5s ease-in-out;
     }
     
     .input {
-      font-size: medium;
-    }
-    
-    .submit {
+      width: 100%;
+      height: 40px;
+      background: #e0dede;
+      padding: 10px;
       border: none;
       outline: none;
-      padding: 10px;
-      border-radius: 10px;
+      border-radius: 4px;
+    }
+    
+    /*Register*/
+    .register {
+      background: #eee;
+      border-radius: 60% / 10%;
+      transform: translateY(5%);
+      transition: .8s ease-in-out;
+    }
+    
+    .register label {
+      color: #56a66a;
+      transform: scale(.6);
+    }
+    
+    #chk:checked ~ .register {
+      transform: translateY(-60%);
+    }
+    
+    #chk:checked ~ .register label {
+      transform: scale(1);
+      margin: 10% 0 5%;
+    }
+    
+    #chk:checked ~ .login label {
+      transform: scale(.6);
+      margin: 5% 0 5%;
+    }   
+    /*Button*/
+    .form button {
+      width: 85%;
+      height: 40px;
+      margin: 12px auto 10%;
       color: #fff;
-      font-size: 16px;
-      transform: .3s ease;
-      background: linear-gradient(90deg, rgba(131,171,112,0.9192927170868347) 23%, rgba(4,77,36,0.7988445378151261) 64%);;
+      background: #56a66a;
+      font-size: 1rem;
+      font-weight: bold;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: .2s ease-in;
     }
     
-    .submit:hover {
-      background-color: #00bfff96;
+    .form button:hover {
+      background-color: #59b844;
     }
     
-    @keyframes pulse {
-      from {
-        transform: scale(0.9);
-        opacity: 1;
-      }
-    
-      to {
-        transform: scale(1.8);
-        opacity: 0;
-      }
-    }

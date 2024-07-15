@@ -1,0 +1,54 @@
+{% comment %} datos aportador {% endcomment %}
+{% comment %} mis aportes historicos {% endcomment %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="Assets/styles.css">
+</head>
+<style>
+    body {
+        background-image: url("Assets/images/fondo.png");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }
+</style>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light glass" style="text-align: right">
+        <a class="navbar-brand" href="index.html"><img src="Assets/images/logo.png" alt="" width="150px" length="250px"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-link active" href="home.html">Home<span class="sr-only">(current)</span></a>
+            <a class="nav-link " href="aportadores.html">Aporte</a>
+            <a class="nav-link " href="mandatos.html">Mandatos</a>
+            <a class="nav-link " href="ingresos.html">Ingresos</a>
+            <a class="nav-link " href="residentes.html">Residentes</a>
+            <a class="nav-link " href="administrador.html">Administrador</a>
+          </div>
+        </div>
+      </nav>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+
+<script>
+    $(document).ready(function(){
+        //INICIALIZANDO COMPONENTES
+        AOS.init();
+        console.log('AOS se ha iniciado');
+    });
+
+</html>

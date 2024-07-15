@@ -56,7 +56,7 @@
                     <input class="input" type="email" name="email" placeholder="Email" required="">
                     <input class="input" type="password" name="pswd" placeholder="Contraseña" required="">
                     <input class="input" type="password" name="pswd" placeholder="Confirme contraseña" required="">
-                    <button>Registrar</button>
+                    <button onclick="registrado()" >Registrar</button>
                   </form>
                 </div>
             </div>      
@@ -157,5 +157,15 @@ function mostrarMensajeError() {
             timer: 5000
         });
     });
+
+    function registrado(){
+      Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "su usuario ha sido creado",
+        showConfirmButton: false,
+        timer: 1500
+      });
+    }
   </script>
 </html>

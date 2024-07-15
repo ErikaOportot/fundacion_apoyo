@@ -102,3 +102,15 @@ h1 {
     position: relative;
   }
   
+  .hidden-display4 {
+    display: none;
+} 
+.ver-mas{
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #073e35;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
